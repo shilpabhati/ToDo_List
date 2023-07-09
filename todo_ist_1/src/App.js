@@ -2,8 +2,14 @@ import './App.css';
 import Navbar from './MyComponents/Navbar';
 import ToDo from './MyComponents/ToDo';
 import Footer from './MyComponents/Footer'
-import React, { useDeferredValue, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AddToDo from './MyComponents/AddToDo';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+import About from './MyComponents/About';
 
 function App() {
   let initToDo;
@@ -45,12 +51,17 @@ function App() {
     {localStorage.setItem("ToDo_List", JSON.stringify(ToDo_List))}, [ToDo_List]);
     
   return (
-    <>
+    <Router>
     <Navbar Nav_name="Todo List"/>
-    <AddToDo addToDo={addToDo}/>
-    <ToDo ToDo_List={ToDo_List} onDelete={onDelete}/>
+    
+     <Routes>  
+      <Route exact path="/about" element={<About/>} />
+      <Route exact path="/"  element={[<AddToDo addToDo={addToDo}/>, <ToDo ToDo_List={ToDo_List} onDelete={onDelete}/>]}/>
+      {/* <Route exact path="/"  element={<ToDo ToDo_List={ToDo_List} onDelete={onDelete}/>}/> */}
+     </Routes>
+  
     <Footer/>
-    </>
+    </Router>
   );
 }
 

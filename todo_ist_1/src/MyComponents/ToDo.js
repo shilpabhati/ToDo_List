@@ -3,14 +3,12 @@ import ToDoItem from './ToDoItem'
 
 function ToDo(props) {
     let myStyle = {
-        minHeight: "70vh",
-        margin: "40px auto"
+        minHeight: "100vh",
+        margin: "40px auto",
     }
     return (
-
-
         <div className="container" style={myStyle}>
-            <h3 className="text-center">ToDo List</h3>
+            <h3 className="text-center my-3">ToDo List</h3>
             {props.ToDo_List.length === 0 ? "no such data available" :
                 
                     props.ToDo_List.map((todo) => {

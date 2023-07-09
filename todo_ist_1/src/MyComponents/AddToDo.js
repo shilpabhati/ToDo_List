@@ -15,7 +15,7 @@ function AddToDo({addToDo}) {
           }
     }
     return (
-        <div className="container">
+        <div className="container my-3" >
             <h4>Add a ToDo</h4>
             <form onSubmit={onsubmit}>
                 <div className="mb-3">
@@ -24,8 +24,8 @@ function AddToDo({addToDo}) {
 
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="description" className="form-label">Description</label>
-                    <input type="text" value={desc} onChange={(event)=>{setDesc(event.target.value)}} className="form-control" id="description" />
+                    <label htmlFor="desc" className="form-label">Description</label>
+                    <input type="text" value={desc} onChange={(event)=>{setDesc(event.target.value)}} className="form-control" id="desc" />
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
